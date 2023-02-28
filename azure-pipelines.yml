@@ -19,9 +19,7 @@ steps:
     # Using replace tokens for the postgres data source conexions 
     inputs:
       rootDirectory: "$(System.DefaultWorkingDirectory)/grafana/configmaps"
-      targetFiles: |
-        "datasource.yaml"
-        "notifiers.yaml"
+      targetFiles: "*.yaml"
       encoding: "auto"
       writeBOM: true
       actionOnMissing: "warn"
