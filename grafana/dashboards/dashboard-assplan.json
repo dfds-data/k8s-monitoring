@@ -298,7 +298,7 @@
       },
       "gridPos": {
         "h": 8,
-        "w": 8,
+        "w": 5,
         "x": 6,
         "y": 8
       },
@@ -382,8 +382,8 @@
       },
       "gridPos": {
         "h": 8,
-        "w": 10,
-        "x": 14,
+        "w": 7,
+        "x": 11,
         "y": 8
       },
       "id": 13,
@@ -414,35 +414,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
+            "mode": "thresholds"
           },
           "mappings": [],
           "thresholds": {
@@ -463,32 +435,95 @@
       },
       "gridPos": {
         "h": 8,
+        "w": 6,
+        "x": 18,
+        "y": 8
+      },
+      "id": 15,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.2.6",
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "sum(increase(flower_events_total{service=\"flower-service\", type=\"task-received\"}[$__range])) by (task)",
+          "interval": "",
+          "legendFormat": "{{ task }}",
+          "refId": "A"
+        }
+      ],
+      "title": "Number of tasks recieved in 24 hours",
+      "type": "stat"
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
         "w": 12,
         "x": 0,
         "y": 16
       },
       "id": 5,
       "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom"
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
         },
-        "tooltip": {
-          "mode": "single"
-        }
+        "text": {},
+        "textMode": "auto"
       },
+      "pluginVersion": "8.2.6",
       "targets": [
         {
           "exemplar": true,
           "expr": "sum (redis_db_keys{namespace=\"logistics-assisted-pla-znkjx\"}) by (service)",
           "interval": "",
-          "legendFormat": "",
+          "legendFormat": "{{ service }}",
           "refId": "A"
         }
       ],
       "title": "Total items per DB",
-      "type": "timeseries"
+      "type": "stat"
     },
     {
       "datasource": null,
@@ -596,5 +631,5 @@
   "timezone": "",
   "title": "AssPlan",
   "uid": "cKbV9AgSk",
-  "version": 2
+  "version": 3
 }
