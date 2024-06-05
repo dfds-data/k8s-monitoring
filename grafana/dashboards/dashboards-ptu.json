@@ -193,7 +193,7 @@
         "targets": [
           {
             "exemplar": true,
-            "expr": "n_predictions_total{job=\"pretravel-upsell-api\"}",
+            "expr": "n_predictions_total{service=\"pretravel-upsell-api\"}",
             "interval": "",
             "legendFormat": "n_predictions pod={{pod}}",
             "refId": "Number predictions"
