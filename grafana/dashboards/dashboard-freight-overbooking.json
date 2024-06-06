@@ -27,6 +27,103 @@
   "panels": [
     {
       "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 18,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "sum(increase(n_times_predicted_immgot_by_end_user_counter{namespace=\"ferry-cancellation-for-jpoxj\", service=\"overbooking-api\"}[10y]))",
+          "interval": "",
+          "legendFormat": "",
+          "refId": "IMM-GOT times predicted"
+        },
+        {
+          "exemplar": true,
+          "expr": "sum(increase(n_times_predicted_gnegot_by_end_user_counter{namespace=\"ferry-cancellation-for-jpoxj\", service=\"overbooking-api\"}[10y]))",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "",
+          "refId": "GNE-GOT times predicted"
+        },
+        {
+          "exemplar": true,
+          "expr": "sum(increase(n_times_predicted_kpspln_by_end_user_counter{namespace=\"ferry-cancellation-for-jpoxj\", service=\"overbooking-api\"}[10y]))",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "",
+          "refId": "KPS-PLN times predicted"
+        }
+      ],
+      "title": "Panel Title",
+      "type": "timeseries"
+    },
+    {
+      "datasource": null,
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -54,7 +151,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 0
+        "y": 8
       },
       "id": 16,
       "options": {
@@ -92,7 +189,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 8
+        "y": 16
       },
       "id": 6,
       "panels": [],
@@ -151,7 +248,7 @@
         "h": 7,
         "w": 7,
         "x": 0,
-        "y": 9
+        "y": 17
       },
       "id": 2,
       "options": {
@@ -252,7 +349,7 @@
         "h": 8,
         "w": 7,
         "x": 7,
-        "y": 9
+        "y": 17
       },
       "id": 12,
       "options": {
@@ -313,7 +410,7 @@
         "h": 8,
         "w": 10,
         "x": 14,
-        "y": 9
+        "y": 17
       },
       "id": 14,
       "options": {
@@ -380,7 +477,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 17
+        "y": 25
       },
       "id": 8,
       "options": {
@@ -444,7 +541,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 17
+        "y": 25
       },
       "id": 4,
       "options": {
@@ -505,7 +602,7 @@
         "h": 10,
         "w": 23,
         "x": 1,
-        "y": 25
+        "y": 33
       },
       "id": 10,
       "options": {
